@@ -8,6 +8,7 @@
 
 #include <string>
 #include <cmath>
+#include <math.h>
 
 #include <QtGlobal>
 #if defined(Q_OS_WIN)
