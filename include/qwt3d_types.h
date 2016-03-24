@@ -7,16 +7,18 @@
 #endif
 
 #include <string>
-#include <cmath>
-#include <math.h>
 
 #include <QtGlobal>
 #if defined(Q_OS_WIN)
-	#include <windows.h>
-
-    #define IS_NAN(x) _isnan(x)
+   #include <windows.h>
+   #define IS_NAN(x) _isnan(x)
 #else
+# if QT_VERSION < 0x050600
+    #define IS_NAN(x) isnan(x)
+#else
+    #include <cmath>
     #define IS_NAN(x) std::isnan(x)
+#endif
 #endif
 
 #include "qwt3d_portability.h"
